@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
 .image-in-article {
   display: block;
 }
@@ -8,7 +10,7 @@
 
 body {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Orbitron', 'Segoe UI', sans-serif;
   background: radial-gradient(circle at top, #0a0f1f, #000);
   color: #e0e0e0;
   font-size: 1.15rem;
@@ -17,17 +19,19 @@ body {
 
 header {
   text-align: center;
-  padding: 70px 20px;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(6px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 80px 20px;
+  background: url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=1600&q=80')
+  center/cover no-repeat;
+  border-bottom: 3px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 40px rgba(125, 211, 252, 0.4);
 }
 
 h1 {
-  font-size: 4rem;
-  letter-spacing: 6px;
-  color: #7dd3fc;
+  font-size: 7rem;
+  letter-spacing: 14px;
+  color: #ffffff;
   margin: 0;
+  text-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
 }
 
 .content {
@@ -46,8 +50,10 @@ article {
   gap: 40px;
   padding: 50px;
   background: rgba(255, 255, 255, 0.05);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 3px solid rgba(255, 255, 255, 0.3);
+  border-bottom: 3px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 20px rgba(125, 211, 252, 0.2);
+  border-radius: 25px;
 }
 
 article:nth-child(even) {
@@ -60,8 +66,9 @@ article:nth-child(even) {
 
 .text h2 {
   color: #7dd3fc;
-  font-size: 2.4rem;
+  font-size: 2.6rem;
   margin-bottom: 20px;
+  text-shadow: 0 0 10px #7dd3fc;
 }
 
 .image {
@@ -73,8 +80,9 @@ article:nth-child(even) {
   width: 100%;
   height: auto;
   border-radius: 10px;
-  border: 5px solid #7dd3fc;
+  border: 8px solid #7dd3fc;
   display: block;
+  box-shadow: 0 0 20px rgba(125, 211, 252, 0.4);
 }
 
 @media (max-width: 900px) {
@@ -100,6 +108,14 @@ article:nth-child(even) {
 
   .text h2 {
     text-align: center;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  header {
+    padding: 80px 20px;
   }
 }
 
