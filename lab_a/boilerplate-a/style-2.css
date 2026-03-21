@@ -112,16 +112,29 @@ footer {
 @media (max-width: 900px) {
   .content {
     grid-template-columns: 1fr;
+    grid-template-areas:
+      "left"
+      "images"
+      "right";
     gap: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
-  .text-col,
+  .text-col:nth-of-type(1) {
+    grid-area: left;
+  }
+
   .image-col {
-    grid-column: 1 !important;
+    grid-area: images;
+  }
+
+  .text-col:nth-of-type(2) {
+    grid-area: right;
   }
 
   .image img {
-    max-width: 600px;
+    max-width: 100%;
     margin: 0 auto;
   }
 
@@ -129,3 +142,4 @@ footer {
     font-size: 3rem;
   }
 }
+
