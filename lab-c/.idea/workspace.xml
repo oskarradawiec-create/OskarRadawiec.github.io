@@ -5,15 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e940a9e4-d486-48b1-a9b6-928fac140fdc" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../lab-b" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab_a/boilerplate-a/.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab_a/boilerplate-a/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab_a/boilerplate-a/assets/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab_a/boilerplate-a/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab_a/boilerplate-a/kosmita.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab_a/boilerplate-a/style-1.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab_a/boilerplate-a/style-2.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab_a/boilerplate-a/ufo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,6 +73,8 @@
       <workItem from="1776407818426" duration="1807000" />
       <workItem from="1776519111504" duration="35000" />
       <workItem from="1776519648160" duration="13000" />
+      <workItem from="1776891198275" duration="794000" />
+      <workItem from="1777375728011" duration="14000" />
     </task>
     <servers />
   </component>
