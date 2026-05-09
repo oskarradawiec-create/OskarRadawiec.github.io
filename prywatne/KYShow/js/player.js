@@ -1,5 +1,19 @@
-const buzzerBtn = document.getElementById("buzzer");
 const nameInput = document.getElementById("name");
+const buzzerBtn = document.getElementById("buzzer");
+
+let playerId = null;
+
+nameInput.addEventListener("change", () => {
+    const name = nameInput.value.trim();
+    if (!name) return;
+
+    playerId = db.ref("game/players").push().key;
+
+    db.ref("game/players/" + playerId).set({
+        name: name,
+        joinedAt: Date.now()
+    });
+});
 
 db.ref("game/category").on("value", snap => {
     document.getElementById("category").textContent = snap.val() || "—";

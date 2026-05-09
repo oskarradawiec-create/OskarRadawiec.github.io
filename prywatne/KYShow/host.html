@@ -2,28 +2,46 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <title>Prowadzący</title>
+    <title>Prowadzący – Teleturniej</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="container">
-    <h1>Prowadzący</h1>
 
-    <button id="spin">Zakręć kołem</button>
-    <p>Kategoria: <span id="category">—</span></p>
+    <h1>Panel prowadzącego</h1>
 
-    <button id="startRound">Start rundy</button>
-    <button id="reset">Reset buzzera</button>
+    <div class="host-layout">
+        <div class="left-panel">
+            <button id="spin" class="primary">Zakręć kołem</button>
 
-    <p>Pierwszy kliknął: <span id="winner">—</span></p>
+            <p>Kategoria: <span id="category">—</span></p>
 
-    <canvas id="wheel" width="400" height="400"></canvas>
+            <button id="startRound" class="primary">Start rundy</button>
+            <button id="reset" class="secondary">Reset gry</button>
+
+            <div class="winner-box">
+                <p>Pierwszy kliknął: <span id="winner">—</span></p>
+            </div>
+
+            <div class="card">
+                <h2>Gracze:</h2>
+                <ul id="playerList"></ul>
+            </div>
+        </div>
+
+        <div class="right-panel">
+            <canvas id="wheel" width="400" height="400"></canvas>
+        </div>
+    </div>
+
 </div>
 
+<!-- Firebase -->
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js"></script>
-
 <script src="js/firebase.js"></script>
+
+<!-- Logika -->
 <script src="js/wheel.js"></script>
 <script src="js/host.js"></script>
 </body>
