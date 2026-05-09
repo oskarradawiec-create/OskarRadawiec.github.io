@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Prowadzący</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Prowadzący</h1>
+
+    <button id="spin">Zakręć kołem</button>
+    <p>Kategoria: <span id="category">—</span></p>
+
+    <button id="startRound">Start rundy</button>
+    <button id="reset">Reset buzzera</button>
+
+    <p>Pierwszy kliknął: <span id="winner">—</span></p>
+
+    <canvas id="wheel" width="400" height="400"></canvas>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js"></script>
+
+<script src="js/firebase.js"></script>
+<script src="js/wheel.js"></script>
+<script src="js/host.js"></script>
+</body>
+</html>

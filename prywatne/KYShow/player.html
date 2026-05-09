@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Gracz</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="center">
+<div class="card">
+  <h1>Gracz</h1>
+
+  <input id="name" placeholder="Twoje imię">
+  <button id="buzzer" disabled>BUZZER</button>
+
+  <p>Kategoria: <span id="category">—</span></p>
+  <p>Zwycięzca: <span id="winner">—</span></p>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js"></script>
+
+<script src="js/firebase.js"></script>
+<script src="js/player.js"></script>
+</body>
+</html>
