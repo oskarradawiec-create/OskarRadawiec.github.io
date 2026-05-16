@@ -6,11 +6,11 @@ use App\Encoder\YamlEncoder;
 use App\Encoder\CsvEncoder;
 
 $serializer = new Serializer([
-    new JsonEncoder(),
-    new YamlEncoder(),
-    new CsvEncoder('csv', ','),
-    new CsvEncoder('ssv', ';'),
-    new CsvEncoder('tsv', "\t")
+        new JsonEncoder(),
+        new YamlEncoder(),
+        new CsvEncoder('csv', ','),
+        new CsvEncoder('ssv', ';'),
+        new CsvEncoder('tsv', "\t")
 ]);
 
 $input = $_POST['input'] ?? $_COOKIE['last_input'] ?? '';
@@ -33,10 +33,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Konwerter PTW - LAB F</title>
 </head>
 <body>
+
 <h1>Konwerter danych</h1>
 
-<form method="post"> <label>Dane wejściowe:</label><br>
-    <textarea name="input" rows="10" cols="80"><?= htmlspecialchars($input) ?></textarea><br><br>
+<form method="post">
+
+    <table border="1" cellpadding="10">
+        <tr>
+            <td valign="top">
+                <label>Dane wejściowe:</label><br>
+                <textarea name="input" rows="20" cols="50"><?= htmlspecialchars($input) ?></textarea>
+            </td>
+
+            <td valign="top">
+                <label>Wynik:</label><br>
+                <pre><?= htmlspecialchars($output) ?></pre>
+            </td>
+        </tr>
+    </table>
+
+    <br>
 
     <label>Z:</label>
     <select name="from">
@@ -56,10 +72,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <option value="yaml" <?= $to=='yaml'?'selected':'' ?>>YAML</option>
     </select>
 
-    <button type="submit">Convert</button> </form>
+    <button type="submit">Convert</button>
 
-<hr>
-<label>Wynik:</label>
-<pre style="background: #eee; padding: 10px; border: 1px solid #ccc;"><?= htmlspecialchars($output) ?></pre>
+</form>
+
 </body>
 </html>
