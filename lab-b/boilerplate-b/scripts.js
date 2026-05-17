@@ -27,7 +27,8 @@ class Todo {
     const list = document.getElementById("list");
     list.innerHTML = "";
 
-    this.filteredTasks.forEach((task, index) => {
+    this.filteredTasks.forEach((task) => {
+      const originalIndex = this.tasks.indexOf(task);
       const div = document.createElement("div");
       div.className = "task";
 
@@ -37,44 +38,62 @@ class Todo {
         text = text.replace(regex, `<span class="highlight">$1</span>`);
       }
 
+      let dateDetails = "";
+      if (task.date) {
+        dateDetails = task.date;
+        if (task.time) {
+          dateDetails += " " + task.time;
+        }
+      }
+
       div.innerHTML = `
-        <div class="text">${text}<br><small>${task.date || ""}</small></div>
-        <button class="deleteBtn">Usuń</button>
+        <div class="text">${text}<br><small>${dateDetails}</small></div>
+        <div class="actions">
+          <button class="editBtn">Edytuj</button>
+          <button class="deleteBtn">Usuń</button>
+        </div>
       `;
 
-      div.querySelector(".text").addEventListener("click", () => {
-        this.edit(index);
+      div.querySelector(".editBtn").addEventListener("click", (e) => {
+        e.stopPropagation();
+        this.edit(originalIndex, div);
       });
 
-      div.querySelector(".deleteBtn").addEventListener("click", () => {
-        this.remove(index);
+      div.querySelector(".deleteBtn").addEventListener("click", (e) => {
+        e.stopPropagation();
+        this.remove(originalIndex);
       });
 
       list.appendChild(div);
     });
   }
 
-  add(text, date) {
+  add(text, date, time) {
     if (text.length < 3 || text.length > 255) {
-      alert("Zadanie musi miec 3–255 znakow");
+      alert("Zadanie musi mieć 3–255 znaków");
       return;
     }
 
     if (date) {
       const now = new Date();
       const d = new Date(date);
-      if (d <= now) {
-        alert("Data musi byc w przyszlosci");
+
+      if (time) {
+        const [hours, minutes] = time.split(":");
+        d.setHours(hours, minutes, 0, 0);
+      } else {
+        d.setHours(23, 59, 59, 999);
+      }
+
+      if (d < now) {
+        alert("Data i godzina muszą być w przyszłości");
         return;
       }
     }
 
-    this.tasks.push({ text, date });
-
-    // 🔧 NAPRAWA: reset wyszukiwarki, aby nowe zadanie było widoczne
+    this.tasks.push({ text, date, time });
     this.term = "";
     document.getElementById("search").value = "";
-
     this.save();
     this.draw();
   }
@@ -85,26 +104,79 @@ class Todo {
     this.draw();
   }
 
-  edit(index) {
-    const list = document.getElementById("list");
-    const div = list.children[index];
-    const old = this.tasks[index].text;
+  edit(index, divElement) {
+    const currentTask = this.tasks[index];
 
-    div.innerHTML = `<input id="editInput" type="text" value="${old}">`;
+    divElement.innerHTML = `
+      <div class="editForm" style="display: flex; flex-direction: column; gap: 5px; width: 75%;">
+        <input id="editInput" type="text" value="${currentTask.text}" style="padding: 5px; width: 100%;">
+        <div style="display: flex; gap: 5px;">
+          <input id="editDate" type="date" value="${currentTask.date || ''}" style="padding: 5px; flex: 1;">
+          <input id="editTime" type="time" value="${currentTask.time || ''}" style="padding: 5px; flex: 1;">
+        </div>
+      </div>
+      <button id="saveBtn" style="padding: 10px; height: fit-content;">Zapisz</button>
+    `;
 
-    const input = div.querySelector("#editInput");
+    const input = divElement.querySelector("#editInput");
+    const inputDate = divElement.querySelector("#editDate");
+    const inputTime = divElement.querySelector("#editTime");
+    const saveBtn = divElement.querySelector("#saveBtn");
     input.focus();
 
-    const handler = (e) => {
-      if (e.target !== input) {
-        this.tasks[index].text = input.value.trim();
-        this.save();
+    const saveChanges = () => {
+      const newValue = input.value.trim();
+      const newDate = inputDate.value;
+      const newTime = inputTime.value;
+
+      if (newValue.length < 3 || newValue.length > 255) {
+        alert("Zmieniony tekst musi mieć od 3 do 255 znaków!");
         this.draw();
-        document.removeEventListener("click", handler);
+        document.removeEventListener("click", outsideClickHandler);
+        return;
       }
+
+      if (newDate) {
+        const now = new Date();
+        const d = new Date(newDate);
+        if (newTime) {
+          const [hours, minutes] = newTime.split(":");
+          d.setHours(hours, minutes, 0, 0);
+        } else {
+          d.setHours(23, 59, 59, 999);
+        }
+
+        if (d < now) {
+          alert("Data i godzina muszą być w przyszłości!");
+          this.draw();
+          document.removeEventListener("click", outsideClickHandler);
+          return;
+        }
+      }
+
+      this.tasks[index] = { text: newValue, date: newDate, time: newTime };
+      this.save();
+      this.draw();
+      document.removeEventListener("click", outsideClickHandler);
     };
 
-    document.addEventListener("click", handler);
+    saveBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      saveChanges();
+    });
+
+    const stopPropagationElements = [input, inputDate, inputTime, divElement];
+    stopPropagationElements.forEach(el => {
+      if (el) el.addEventListener("click", (e) => e.stopPropagation());
+    });
+
+    const outsideClickHandler = () => {
+      saveChanges();
+    };
+
+    setTimeout(() => {
+      document.addEventListener("click", outsideClickHandler);
+    }, 50);
   }
 }
 
@@ -114,11 +186,13 @@ document.todo.draw();
 document.getElementById("addBtn").addEventListener("click", () => {
   const text = document.getElementById("newTask").value.trim();
   const date = document.getElementById("newDate").value;
+  const time = document.getElementById("newTime").value;
 
-  document.todo.add(text, date);
+  document.todo.add(text, date, time);
 
   document.getElementById("newTask").value = "";
   document.getElementById("newDate").value = "";
+  document.getElementById("newTime").value = "";
 });
 
 document.getElementById("search").addEventListener("input", (e) => {

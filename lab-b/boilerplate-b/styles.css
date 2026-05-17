@@ -4,15 +4,27 @@ body {
   margin: 40px auto;
 }
 
-#search, #newTask, #newDate {
+#search, #newTask, #newDate, #newTime {
   width: 100%;
   padding: 10px;
   margin-bottom: 10px;
+  box-sizing: border-box;
 }
 
 #addBox {
   display: flex;
   gap: 10px;
+  align-items: center;
+}
+
+#newTask, #newDate, #newTime {
+  margin-bottom: 0;
+  height: 38px;
+}
+
+#newTask, #newDate, #newTime {
+  margin-bottom: 0;
+  height: 38px;
 }
 
 .task {
@@ -24,12 +36,27 @@ body {
   align-items: center;
 }
 
-.deleteBtn {
+.actions {
+  display: flex;
+  gap: 5px;
+}
+
+.deleteBtn, .editBtn {
   background: red;
   color: white;
   border: none;
-  padding: 5px 10px;
+  padding: 8px 12px;
   cursor: pointer;
+  height: 34px;
+  box-sizing: border-box;
+}
+
+.deleteBtn {
+  background: red;
+}
+
+.editBtn {
+  background: #007bff;
 }
 
 .highlight {
