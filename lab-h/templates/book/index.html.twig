@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Książki - Indeks{% endblock %}
+
+{% block body %}
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="display-5 fw-bold text-secondary">Lista Książek</h1>
+        <a href="{{ path('app_book_new') }}" class="btn btn-success fw-semibold shadow-sm">
+            + Dodaj nową książkę
+        </a>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-body p-0">
+            <table class="table table-striped table-hover align-middle mb-0">
+                <thead class="table-dark">
+                <tr>
+                    <th class="px-4">ID</th>
+                    <th>Tytuł</th>
+                    <th>Autor</th>
+                    <th>Rok wydania</th>
+                    <th class="text-center">Akcje</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for book in books %}
+                    <tr>
+                        <td class="px-4 fw-bold text-muted">{{ book.id }}</td>
+                        <td class="fw-semibold">{{ book.title }}</td>
+                        <td>{{ book.author }}</td>
+                        <td><span class="badge bg-light text-dark border">{{ book.year }}</span></td>
+                        <td class="text-center">
+                            <div class="btn-group" role="group">
+                                <a href="{{ path('app_book_show', {'id': book.id}) }}" class="btn btn-sm btn-outline-info">
+                                    Pokaż
+                                </a>
+                                <a href="{{ path('app_book_edit', {'id': book.id}) }}" class="btn btn-sm btn-outline-warning">
+                                    Edytuj
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="5" class="text-center text-muted py-4">
+                            Nie znaleziono żadnych rekordów w bazie danych.
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

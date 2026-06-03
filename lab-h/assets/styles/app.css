@@ -1,0 +1,18 @@
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.card {
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.btn {
+    transition: all 0.2s ease-in-out;
+}
