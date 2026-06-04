@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Book</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body class="edit">
+    <div id="container">
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="/">HOME</a></li>
+                    <li><a href="/book">BOOKS</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <h1>Create Book</h1>
+
+            <form action="/book/create" method="post" class="edit-form">
+                <%- include('_form.html.ejs') %>
+            </form>
+
+            <a href="/book">Back to list</a>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 - My Book Application</p>
+        </footer>
+    </div>
+</body>
+</html>

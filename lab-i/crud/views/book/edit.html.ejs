@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Book <%= book.title %> (<%= book.id %>)</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body class="edit">
+    <div id="container">
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="/">HOME</a></li>
+                    <li><a href="/book">BOOKS</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <h1>Edit Book <%= book.title %> (<%= book.id %>)</h1>
+
+            <form action="/book/<%= book.id %>/edit" method="post" class="edit-form">
+                <%- include('_form.html.ejs') %>
+            </form>
+
+            <ul class="action-list">
+                <li>
+                    <a href="/book">Back to list</a>
+                </li>
+                <li>
+                    <form action="/book/<%= book.id %>/delete" method="post">
+                        <input type="submit" value="Delete" onclick="return confirm('Are you sure?')">
+                    </form>
+                </li>
+            </ul>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 - My Book Application</p>
+        </footer>
+    </div>
+</body>
+</html>

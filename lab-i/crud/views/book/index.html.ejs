@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book List</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body class="index">
+    <div id="container">
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="/">HOME</a></li>
+                    <li><a href="/book">BOOKS</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <h1>Books List</h1>
+
+            <a href="/book/create">Create new</a>
+
+            <ul class="index-list">
+                <% books.forEach(function(book) { %>
+                    <li>
+                        <h3><%= book.title %></h3>
+                        <ul class="action-list">
+                            <li><a href="/book/<%= book.id %>">Details</a></li>
+                            <li><a href="/book/<%= book.id %>/edit">Edit</a></li>
+                        </ul>
+                    </li>
+                <% }); %>
+            </ul>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 - My Book Application</p>
+        </footer>
+    </div>
+</body>
+</html>
