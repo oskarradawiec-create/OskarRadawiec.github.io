@@ -1,0 +1,158 @@
+.edit {
+  .edit-form {
+    margin-bottom: 1em;
+
+    .form-group {
+      margin-bottom: 1em;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      @media (min-width: @mobileBreakpoint) {
+        flex-direction: row;
+      }
+
+      label {
+        display: inline-block;
+        flex-grow: 1;
+      }
+
+      input[type="text"] {
+        flex-grow: 3;
+      }
+
+      textarea {
+        height: 300px;
+        flex-grow: 3;
+      }
+    }
+  }
+}
+footer {
+  font-size: 0.8rem;
+
+  &::before {
+    content: "";
+    display: block;
+    width: 100%;
+    border-top: 1px solid @lineColor;
+    margin: 0 auto 10px auto;
+  }
+}
+.index {
+  ul.index-list {
+    li {
+      margin-bottom: 2em;
+    }
+  }
+}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: @backgroundColor;
+  display: flex;
+  flex-direction: column;
+  min-height: 95vh;
+  font-family: "Poppins", sans-serif;
+  font-size: @baseFontSize;
+  line-height: 1.5 * @baseFontSize;
+  color: @fontColor;
+
+  @media (min-width: @mobileBreakpoint) {
+    background: url('https://cdn.pixabay.com/photo/2018/01/26/20/24/pattern-3109720_960_720.jpg');
+  }
+
+  main, nav, footer {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 1rem;
+
+    @media (min-width: @mobileBreakpoint) {
+      width: 1024px;
+      margin: 0 auto;
+    }
+  }
+
+  nav {
+    margin-top: 0;
+
+    @media (min-width: @mobileBreakpoint) {
+      margin-top: 1rem;
+    }
+  }
+
+  main {
+    flex-grow: 1;
+  }
+
+  h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+  }
+
+  a {
+    text-decoration: none;
+    color: @fontColor;
+
+    &:hover {
+      color: @accentColor;
+    }
+  }
+
+  ul.action-list {
+    margin-top: 1em;
+    margin-bottom: 2em;
+
+    li {
+      display: inline-block;
+      margin-right: 1em;
+    }
+  }
+}
+nav {
+  ul {
+    li {
+      display: inline-block;
+      padding: 20px 20px 20px 0;
+
+      a {
+        text-transform: uppercase;
+        font-weight: 600;
+      }
+    }
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid @lineColor;
+    margin: 0 auto;
+  }
+}
+.show {
+  article {
+    font-style: italic;
+    color: tint(@fontColor, 20%);
+  }
+}
+@mobileBreakpoint: 1024px;
+@baseFontSize: 16px;
+@backgroundColor: #f5f5f5;
+@fontColor: #484848;
+@lineColor: lighten(@fontColor, 50%);
+@accentColor: #ffa650;
+
+@font-face{font-family:'Poppins';font-style:italic;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/poppins/v24/pxiGyp8kv8JHgFVrJJLedw.ttf) format('truetype')}@font-face{font-family:'Poppins';font-style:italic;font-weight:600;font-display:swap;src:url(https://fonts.gstatic.com/s/poppins/v24/pxiDyp8kv8JHgFVrJJLmr19lEA.ttf) format('truetype')}@font-face{font-family:'Poppins';font-style:italic;font-weight:700;font-display:swap;src:url(https://fonts.gstatic.com/s/poppins/v24/pxiDyp8kv8JHgFVrJJLmy15lEA.ttf) format('truetype')}@font-face{font-family:'Poppins';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/poppins/v24/pxiEyp8kv8JHgFVrFJA.ttf) format('truetype')}@font-face{font-family:'Poppins';font-style:normal;font-weight:600;font-display:swap;src:url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLEj6V1s.ttf) format('truetype')}@font-face{font-family:'Poppins';font-style:normal;font-weight:700;font-display:swap;src:url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLCz7V1s.ttf) format('truetype')}*{box-sizing:border-box}body{background-color:#f5f5f5;display:flex;flex-direction:column;min-height:95vh;font-family:"Poppins",sans-serif;font-size:16px;line-height:24px;color:#484848}@media (min-width:1024px){body{background:url('https://cdn.pixabay.com/photo/2018/01/26/20/24/pattern-3109720_960_720.jpg')}}body main,body nav,body footer{width:100%;background-color:#ffffff;padding:1rem}@media (min-width:1024px){body main,body nav,body footer{width:1024px;margin:0 auto}}body nav{margin-top:0}@media (min-width:1024px){body nav{margin-top:1rem}}body main{flex-grow:1}body h1{font-size:2rem;font-weight:bold;margin-top:.5em;margin-bottom:1em}body h3{font-size:1.5rem;font-weight:bold;margin-top:.5em;margin-bottom:1em}body a{text-decoration:none;color:#484848}body a:hover{color:#ffa650}body ul.action-list{margin-top:1em;margin-bottom:2em}body ul.action-list li{display:inline-block;margin-right:1em}nav ul li{display:inline-block;padding:20px 20px 20px 0}nav ul li a{text-transform:uppercase;font-weight:600}nav::after{content:"";display:block;width:100%;border-bottom:1px solid #c8c8c8;margin:0 auto}footer{font-size:.8rem}footer::before{content:"";display:block;width:100%;border-top:1px solid #c8c8c8;margin:0 auto 10px auto}.index ul.index-list li{margin-bottom:2em}.show article{font-style:italic;color:#6d6d6d}.edit .edit-form{margin-bottom:1em}.edit .edit-form .form-group{margin-bottom:1em;width:100%;display:flex;flex-direction:column}@media (min-width:1024px){.edit .edit-form .form-group{flex-direction:row}}.edit .edit-form .form-group label{display:inline-block;flex-grow:1}.edit .edit-form .form-group input[type="text"]{flex-grow:3}.edit .edit-form .form-group textarea{height:300px;flex-grow:3}
+
+{"version":3,"sources":["https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap","_layout.less","_nav.less","_footer.less","_index.less","_show.less","_edit.less"],"names":[],"mappings":"AAAA;EACE,aAAa,SAAb;EACA,kBAAA;EACA,gBAAA;EACA,kBAAA;EACA,6EAA6E,OAAO,WAApF;;AAEF;EACE,aAAa,SAAb;EACA,kBAAA;EACA,gBAAA;EACA,kBAAA;EACA,iFAAiF,OAAO,WAAxF;;AAEF;EACE,aAAa,SAAb;EACA,kBAAA;EACA,gBAAA;EACA,kBAAA;EACA,iFAAiF,OAAO,WAAxF;;AAEF;EACE,aAAa,SAAb;EACA,kBAAA;EACA,gBAAA;EACA,kBAAA;EACA,0EAA0E,OAAO,WAAjF;;AAEF;EACE,aAAa,SAAb;EACA,kBAAA;EACA,gBAAA;EACA,kBAAA;EACA,8EAA8E,OAAO,WAArF;;AAEF;EACE,aAAa,SAAb;EACA,kBAAA;EACA,gBAAA;EACA,kBAAA;EACA,8EAA8E,OAAO,WAArF;;ACxCF;EACE,sBAAA;;AAGF;EACE,yBAAA;EACA,aAAA;EACA,sBAAA;EACA,gBAAA;EACA,aAAa,qBAAb;EACA,eAAA;EACA,iBAAA;EACA,cAAA;;AAEA,QAAsC;EAAtC;IACE,gBAAgB,6EAAhB;;;AAXJ,IAcE;AAdF,IAcQ;AAdR,IAca;EACT,WAAA;EACA,yBAAA;EACA,aAAA;;AAEA,QAAsC;EAAtC,IALF;EAKE,IALI;EAKJ,IALS;IAMP,aAAA;IACA,cAAA;;;AArBN,IAyBE;EACE,aAAA;;AAEA,QAAsC;EAAtC,IAHF;IAII,gBAAA;;;AA7BN,IAiCE;EACE,YAAA;;AAlCJ,IAqCE;EACE,eAAA;EACA,iBAAA;EACA,iBAAA;EACA,kBAAA;;AAzCJ,IA4CE;EACE,iBAAA;EACA,iBAAA;EACA,iBAAA;EACA,kBAAA;;AAhDJ,IAmDE;EACE,qBAAA;EACA,cAAA;;AAEA,IAJF,EAIG;EACC,cAAA;;AAxDN,IA4DE,GAAE;EACA,eAAA;EACA,kBAAA;;AA9DJ,IA4DE,GAAE,YAIA;EACE,qBAAA;EACA,iBAAA;;ACtEN,GACE,GACE;EACE,qBAAA;EACA,yBAAA;;AAJN,GACE,GACE,GAIE;EACE,yBAAA;EACA,gBAAA;;AAKN,GAAC;EACC,SAAS,EAAT;EACA,cAAA;EACA,WAAA;EACA,gCAAA;EACA,cAAA;;AClBJ;EACE,iBAAA;;AAEA,MAAC;EACC,SAAS,EAAT;EACA,cAAA;EACA,WAAA;EACA,6BAAA;EACA,wBAAA;;ACRJ,MACE,GAAE,WACA;EACE,kBAAA;;ACHN,KACE;EACE,kBAAA;EACA,cAAA;;ACHJ,KACE;EACE,kBAAA;;AAFJ,KACE,WAGE;EACE,kBAAA;EACA,WAAA;EACA,aAAA;EACA,sBAAA;;AACA,QAAsC;EAAtC,KARJ,WAGE;IAMI,mBAAA;;;AAVR,KACE,WAGE,YASE;EACE,qBAAA;EACA,YAAA;;AAfR,KACE,WAGE,YAcE,MAAK;EACH,YAAA;;AAnBR,KACE,WAGE,YAkBE;EACE,aAAA;EACA,YAAA","file":"style.css"}
